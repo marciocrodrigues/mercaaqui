@@ -14,7 +14,6 @@ namespace MegaHack.Api.Controllers
 {
     [Route("v1/[controller]")]
     [ApiController]
-    [Authorize]
     public class ComercianteController : ControllerBase
     {
         private readonly ComercianteService _service;
@@ -47,6 +46,7 @@ namespace MegaHack.Api.Controllers
         /// <param name="ID_Comerciante"></param>
         /// <returns></returns>
         [HttpGet("produtos/{ID_Comerciante}")]
+        [Authorize]
         public async Task<ActionResult<List<ProdutoOutput>>> BuscarProdutoPorComerciante([FromRoute]int ID_Comerciante)
         {
             return Ok(await _service.BuscaProdutoPorComerciante(ID_Comerciante));
@@ -58,6 +58,7 @@ namespace MegaHack.Api.Controllers
         /// <param name="ID_Comerciante"></param>
         /// <returns></returns>
         [HttpGet("{ID_Comerciante}")]
+        [Authorize]
         public async Task<ActionResult<ComercianteOutput>> BuscarComerciantePorId([FromRoute]int ID_Comerciante)
         {
             return Ok(await _service.BuscarComerciantePorId(ID_Comerciante));
