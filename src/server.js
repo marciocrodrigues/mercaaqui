@@ -4,6 +4,8 @@ const routes = require('./routes')
 
 const server = express()
 
+const port = process.env.PORT || 3000
+
 server.use(express.urlencoded({ extended: true }))
 server.use(express.static('public'))
 server.use(routes)
@@ -16,6 +18,6 @@ nunjucks.configure('src/app/pages', {
     autoescape: false
 })
 
-server.listen(3000, () => {
+server.listen(port, () => {
     console.log(' - Server Online - ')
 })
