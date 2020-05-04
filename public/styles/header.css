@@ -44,6 +44,13 @@
     height: 48px;
 }
 
+.header__logo {
+    background-size: contain;
+    background-position: center;
+    width: 150;
+    height: 70px;
+}
+
 @media (max-width: 811px) {
     .header__link, .header__link:first-child {
         margin-right: 40px;
