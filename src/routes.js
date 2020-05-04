@@ -1,4 +1,5 @@
 const express = require('express')
+const fs = require('fs');
 const { LocalStorage } = require('node-localstorage')
 
 const routes = express.Router()
@@ -7,6 +8,8 @@ const apiDeliverer = require('./services/deliverer')
 const apiSessao = require('./services/sessao')
 const apiSeller = require('./services/seller')
 const apiProduct = require('./services/product')
+
+const encoded64 = require('./utils/base64')
 
 const localStorage = new LocalStorage('./scratch')
 
@@ -48,6 +51,47 @@ routes.get('/users/login', (req, res) => {
     return res.render('session/login')
 })
 
+routes.get('/users/product', (req, res) => {
+    return res.render('product/index')
+});
+
+routes.post('/users/product', async (req, res) => {
+    const { descricao, quantidade, preco, imagem } = req.body
+
+    let file = ''
+
+    if(imagem !== ''){
+        const imagemBase64 = fs.readFileSync(imagem, { encoding: 'base64' })
+
+        file = `data:image/png;base64,${imagemBase64}`   
+    }
+
+    const idComerciante = localStorage.getItem('idComerciante')
+
+    const data = {
+        iD_Produto: 0,
+        iD_Comerciante: parseInt(idComerciante),
+        descricao: descricao,
+        quantidade: parseInt(quantidade),
+        preco: parseFloat(preco),
+        imagem: file
+    }
+
+    const response = await apiProduct.register(data)
+
+    if(response.Returno_Code !== 0){
+
+        const iD_Identificador = localStorage.getItem('idComerciante')
+
+        const seller = await apiSeller.index(iD_Identificador)
+        
+        const products = await apiProduct.index(iD_Identificador)
+
+        return res.render('profile/index', { products, seller })
+    }
+
+})
+
 routes.post('/users/login', async (req, res) => {
     const { email, password } = req.body;
 
@@ -62,6 +106,8 @@ routes.post('/users/login', async (req, res) => {
     localStorage.setItem('tokenSessao', result.token)
 
     if(result.tipo === 'CO'){
+
+        localStorage.setItem('idComerciante',result.iD_Identificador)
 
         const seller = await apiSeller.index(result.iD_Identificador)
         

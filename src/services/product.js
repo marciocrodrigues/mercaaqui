@@ -8,7 +8,14 @@ const localStorage = new LocalStorage('./scratch')
 class Product {
   
   async register(dados){
-
+    return await axios.post(`${urlBase}Cadastrar/cadastrar-produto`, dados, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('tokenSessao')}`,
+      }})
+      .then((response) => {
+        return response.data
+      })
+      .catch(e => console.error(e))
   }
 
   async index(id){

@@ -1,0 +1,22 @@
+{% extends 'layout-profile.njk' %}
+
+{% block content %}
+
+<main class="seller-profile container">
+  <form action="/users/product" method="POST" class="login container">
+
+        <h2 class="login__title">Cadastro de produtos</h2>
+
+        <div class="form__fields form__fields--login">
+            {% include 'product/fields.njk' %}
+        </div>
+
+        <div class="login__footer">
+            {# <a href="/users/forgot-password">Perdeu a senha?</a> #}
+            <button class="button" type="submit" class="button">Cadastrar</button>
+        </div>
+
+    </form>
+</main>
+
+{% endblock content %}
