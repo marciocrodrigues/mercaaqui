@@ -12,7 +12,8 @@ class Seller {
   }
 
   async searchSeller(dados){
-    return await axios.get(`${urlBase}Comerciante/comerciantes/cidade-estado?Cidade=${dados.cidade}&Estado=${dados.estado}`, {
+    console.log(`${urlBase}Comerciante/comerciantes/cidade-estado`)
+    return await axios.post(`${urlBase}Comerciante/comerciantes/cidade-estado`, dados, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('tokenSessao')}`,
       }})

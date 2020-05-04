@@ -33,8 +33,8 @@ namespace MegaHack.Api.Controllers
         /// </remarks>
         /// <param name="param"></param>
         /// <returns></returns>
-        [HttpGet("comerciantes/cidade-estado")]
-        public async Task<ActionResult<List<ComercianteOutput>>> ComerciantePorCidadeEstado([FromQuery]ComercianteInput param)
+        [HttpPost("comerciantes/cidade-estado")]
+        public async Task<ActionResult<List<ComercianteOutput>>> ComerciantePorCidadeEstado(ComercianteInput param)
         {
             return Ok(await _service.ComerciantePorCidadeEstado(param));
         }

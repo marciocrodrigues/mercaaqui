@@ -20,7 +20,7 @@ routes.get('/', (req, res) => {
 })
 
 /* SELLERS */
-routes.get('/sellers', (req, res) => {
+routes.get('/sellers', async (req, res) => {
 
     const { estado, cidade } = req.query
 
@@ -29,11 +29,9 @@ routes.get('/sellers', (req, res) => {
         cidade: cidade
     }
 
-    const response = await apiSeller.searchSeller(data)
+    const stores = await apiSeller.searchSeller(data)
 
-    console.log(response)
-
-    //return res.render('home/sellers', { stores })
+    return res.render('home/sellers', { stores })
 })
 
 /* DELIVERERS */
