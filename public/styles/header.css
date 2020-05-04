@@ -2,6 +2,7 @@
     display: flex;
     height: 70px;
     z-index: 1;
+    margin: 10px auto;
 }
 
 .header__links {
@@ -13,6 +14,10 @@
     margin-right: 150px;
     font-size: 1.5rem;
     color: var(--text-color);
+
+}
+.header__logo {
+    height: 70px; 
 }
 
 .header__link--profile {
