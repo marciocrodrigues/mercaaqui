@@ -1,0 +1,32 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+    <main class="register-profiles container">
+        <h1 class="register-profiles__title">Registrar como</h1>
+
+        <div class="register-profiles__selection">
+
+            <div class="register-profiles__profile">
+                <img src="/assets/seller-icon.png" alt="ícone de comerciante" class="register-profiles__icon">
+
+                <h2 class="register-profiles__name">Comerciante</h2>
+            </div>
+
+            <div class="register-profiles__profile">
+                <img src="/assets/deliverer-icon.png" alt="ícone de entregador" class="register-profiles__icon">
+
+                <h2 class="register-profiles__name">Entregador</h2>
+            
+            </div>
+
+            <div class="register-profiles__profile">
+                <img src="/assets/buyer-icon.png" alt="ícone de comprador" class="register-profiles__icon">
+
+                <h2 class="register-profiles__name">Comprador</h2>
+            </div>
+
+        </div>
+    </main>
+    
+{% endblock %}

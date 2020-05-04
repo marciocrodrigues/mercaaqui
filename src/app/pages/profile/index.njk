@@ -1,0 +1,53 @@
+{% extends 'layout-profile.njk' %}
+
+{% block content %}
+
+    <main class="seller-profile container">
+
+        <section class="seller-profile__info">
+
+            <input type="hidden" name="idSeller" value="{{seller.iD_Comerciante}}" />  
+
+            <div class="seller-profile__header">
+                <img src="{{seller.imagem}}" alt="Foto de loja" class="seller-profile__photo">
+
+                <p class="seller-profile__category">
+                    Categoria A
+                </p>
+            </div>
+
+            <h2 class="seller-profile__name">{{ seller.nome }}</h2>
+
+            <p class="seller-profile__description">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae, nihil commodi! Explicabo tempore beatae consequatur.
+            </p>
+        
+        </section>
+
+        <section class="seller-profile__products">
+        
+            <h3 class="seller-profile__title">Produtos</h3>
+
+            <div class="seller-products">
+            
+                {% for product in products %}
+                    <div class="product">
+                        <input type="hidden" name="idProduto" value="{{product.iD_Produto}}" >
+                        <img src="{{product.imagem}}" alt="Foto do produto" class="product__photo">
+
+                        <h4 class="product__name">{{product.descricao}}</h4>
+
+                        <p class="product__price">{{product.preco}}</p>
+
+                    </div>
+                {% endfor %}
+
+            </div>
+        
+            <button class="button">Ver todos</button>
+
+        </section>
+
+    </main>
+
+{% endblock content %}

@@ -1,0 +1,39 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+    <section class="search">
+        <form action="/deliverers" method="GET" class="search__form container">
+
+            <input 
+                type="text"
+                placeholder="Procurar entregador"
+                class="search__input"
+            >
+
+            <button type="submit" class="search__button">
+                <img src="/assets/lupa.png" alt="icone de busca" class="search__button-icon">
+            </button>
+        
+        </form>
+    </section>
+    
+    <main class="container">
+
+        <div class="cards cards--deliverers">
+            {% for deliverer in deliverers %}
+    
+                <div class="card">
+                    <img src="{{deliverer.photo}}" alt="{{deliverer.name}}" class="card__photo">
+                    <h2 class="card__name">{{deliverer.name}}</h2>
+                    <p class="card__description">{{deliverer.description}}</p>
+                </div>
+
+            {% endfor %}
+        </div>
+
+        <button class="button">Ver Mais</button>
+
+    </main>
+    
+{% endblock %}

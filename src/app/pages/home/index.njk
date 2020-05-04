@@ -1,0 +1,47 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+    <div class="background">
+
+        <main class="main container">
+            <section class="main__content">
+            
+                <h1 class="main__title">Descubra os vendedores mais próximos de você</h1>
+
+                <form action="/sellers" method="GET" class="main__form">
+
+                    <div class="form__fields">
+
+                        <div class="form__field">
+                            <div class="field__title">Informe seu estado</div>
+                            <input 
+                                type="text"
+                                class="field__input"
+                            >
+                        </div>
+
+                        <div class="form__field">
+                            <div class="field__title">Informe sua cidade</div>
+                            <input 
+                                type="text"
+                                class="field__input"
+                            >
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="button">Procurar</button>
+                </form>
+
+            </section>
+
+            <section class="main__home-image">
+                <img src="/assets/people.png" alt="pessoas comprando" class="main__img">
+            </section>
+        </main>
+
+    </div>
+    
+{% endblock %}
+

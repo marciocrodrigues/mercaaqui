@@ -1,0 +1,39 @@
+{% extends 'layout.njk' %}
+
+{% block content %}
+
+    <section class="search">
+        <form action="/sellers" method="GET" class="search__form container">
+
+            <input 
+                type="text"
+                placeholder="Quero procurar por..."
+                class="search__input"
+            >
+
+            <button type="submit" class="search__button">
+                <img src="/assets/lupa.png" alt="icone de busca" class="search__button-icon">
+            </button>
+        
+        </form>
+    </section>
+    
+    <main class="container">
+
+        <div class="cards cards--sellers">
+            {% for store in stores %}
+    
+                <div class="card">
+                    <img src="{{store.photo}}" alt="{{store.name}}" class="card__photo">
+                    <h2 class="card__name">{{store.name}}</h2>
+                    <p class="card__description">{{store.description}}</p>
+                </div>
+
+            {% endfor %}
+        </div>
+
+        <button class="button">Ver Mais</button>
+
+    </main>
+    
+{% endblock %}

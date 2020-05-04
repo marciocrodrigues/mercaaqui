@@ -1,0 +1,29 @@
+{
+  "name": "mercaqui-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caiquegiovannini/mercaqui-frontend.git"
+  },
+  "keywords": [],
+  "author": "Caique Giovannini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caiquegiovannini/mercaqui-frontend/issues"
+  },
+  "homepage": "https://github.com/caiquegiovannini/mercaqui-frontend#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "node-localstorage": "^2.1.6",
+    "nunjucks": "^3.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}

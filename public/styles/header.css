@@ -1,0 +1,51 @@
+.header {
+    display: flex;
+    height: 70px;
+    z-index: 1;
+}
+
+.header__links {
+    display: flex;
+    align-items: center;
+}
+
+.header__link {
+    margin-right: 150px;
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.header__link--profile {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.header__link:first-child {
+    margin-right: 240px;
+}
+
+.header__link--profile,
+.header__link--profile:first-child {
+    margin-right: 60px;
+}
+
+.header__link:last-child {
+    position: absolute;
+    right: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.link__login-avatar {
+    margin-left: 20px;
+    width: 48px;
+    height: 48px;
+}
+
+@media (max-width: 811px) {
+    .header__link, .header__link:first-child {
+        margin-right: 40px;
+    }
+}

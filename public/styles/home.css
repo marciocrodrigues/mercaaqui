@@ -1,0 +1,53 @@
+.background {
+    background: linear-gradient(180deg, #ffffff 0%, #fff4dc 58%, #ffffff 100%) no-repeat;
+    background-size: contain;
+    padding-top: 80px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('/assets/waves.svg');
+    background-size: contain;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+
+.main {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main__content {
+    width: 60%;
+}
+
+.main__title {
+    color: var(--text-color);
+    font-size: 3.8rem;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+.main__form {
+    margin-top: 20px;
+    width: 50%;
+}
+
+.main__home-image {
+    max-width: 40%;
+    position: absolute;
+    right: -60px;
+}
+
+.main__img {
+    width: 100%;
+}
