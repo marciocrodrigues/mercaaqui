@@ -21,17 +21,19 @@ routes.get('/', (req, res) => {
 
 /* SELLERS */
 routes.get('/sellers', (req, res) => {
-    let stores = []
 
-    for (i=1; i<=8; i++) {
-        stores.push({
-            photo: 'https://via.placeholder.com/500x500',
-            name: `Loja ${i}`,
-            description: 'Vendemos máscaras e produtos de limpeza'
-        })
+    const { estado, cidade } = req.query
+
+    const data = {
+        estado: estado,
+        cidade: cidade
     }
 
-    return res.render('home/sellers', { stores })
+    const response = await apiSeller.searchSeller(data)
+
+    console.log(response)
+
+    //return res.render('home/sellers', { stores })
 })
 
 /* DELIVERERS */

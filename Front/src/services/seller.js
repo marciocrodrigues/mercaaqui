@@ -11,6 +11,17 @@ class Seller {
 
   }
 
+  async searchSeller(dados){
+    return await axios.get(`${urlBase}Comerciante/comerciantes/cidade-estado?Cidade=${dados.cidade}&Estado=${dados.estado}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('tokenSessao')}`,
+      }})
+    .then((response) => {
+      return response.data
+    })
+    .catch(e => console.log(e))
+  }
+
   async index(id){
      return await axios.get(`${urlBase}Comerciante/${id}`,{
       headers: {
